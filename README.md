@@ -1,4 +1,4 @@
-# LaravelRoomstealsApi
+# ArnLaravelApi
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 <!-- [![Total Downloads][ico-downloads]][link-downloads]
@@ -12,7 +12,7 @@ This is where your description should go. Take a look at [contributing.md](contr
 Via Composer
 
 ``` bash
-$ composer require nateritter/laravelroomstealsapi
+$ composer require hotelsforhope/arnlaravelapi
 ```
 
 ## Usage
@@ -44,14 +44,14 @@ If you discover any security related issues, please email author email instead o
 
 license. Please see the [license file](license.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/nateritter/laravelroomstealsapi.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/nateritter/laravelroomstealsapi.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/nateritter/laravelroomstealsapi/master.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/hotelsforhope/arnlaravelapi.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/hotelsforhope/arnlaravelapi.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/hotelsforhope/arnlaravelapi/master.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/12345678/shield
 
-[link-packagist]: https://packagist.org/packages/nateritter/laravelroomstealsapi
-[link-downloads]: https://packagist.org/packages/nateritter/laravelroomstealsapi
-[link-travis]: https://travis-ci.org/nateritter/laravelroomstealsapi
+[link-packagist]: https://packagist.org/packages/hotelsforhope/arnlaravelapi
+[link-downloads]: https://packagist.org/packages/hotelsforhope/arnlaravelapi
+[link-travis]: https://travis-ci.org/hotelsforhope/arnlaravelapi
 [link-styleci]: https://styleci.io/repos/12345678
-[link-author]: https://github.com/nateritter
+[link-author]: https://github.com/hotelsforhope
 [link-contributors]: ../../contributors
