@@ -12,7 +12,7 @@
     "keywords": ["Laravel", "ArnLaravelApi"],
     "require": {
         "guzzlehttp/guzzle": "^7.0.1",
-        "illuminate/support": "7.0"
+        "illuminate/support": "7.0.0"
     },
     "require-dev": {
         "mockery/mockery": "^1.4.2",
