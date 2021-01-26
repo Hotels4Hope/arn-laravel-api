@@ -1,0 +1,42 @@
+{
+    "name": "nateritter/laravelroomstealsapi",
+    "description": "A Laravel package making RoomSteals.com SSO implementation easy",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nate Ritter",
+            "email": "nate@perfectspace.com"
+        }
+    ],
+    "homepage": "https://github.com/nateritter/laravelroomstealsapi",
+    "keywords": ["Laravel", "LaravelRoomstealsApi"],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "illuminate/support": "7.*"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.1",
+        "sempro/phpunit-pretty-print": "^1.0",
+        "phpunit/phpunit": "^8.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "NateRitter\\LaravelRoomstealsApi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NateRitter\\LaravelRoomstealsApi\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NateRitter\\LaravelRoomstealsApi\\LaravelRoomstealsApiServiceProvider"
+            ],
+            "aliases": {
+                "LaravelRoomstealsApi": "NateRitter\\LaravelRoomstealsApi\\Facades\\LaravelRoomstealsApi"
+            }
+        }
+    }
+}
