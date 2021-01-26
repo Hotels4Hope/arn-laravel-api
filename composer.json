@@ -1,41 +1,41 @@
 {
-    "name": "nateritter/laravelroomstealsapi",
-    "description": "A Laravel package making RoomSteals.com SSO implementation easy",
+    "name": "hotelsforhope/arnlaravelapi",
+    "description": "A Laravel package making Alliance Reservations Network SSO implementation easy",
     "license": "MIT",
     "authors": [
         {
             "name": "Nate Ritter",
-            "email": "nate@perfectspace.com"
+            "email": "nate.ritter@hotelsforhope.com"
         }
     ],
-    "homepage": "https://github.com/nateritter/laravelroomstealsapi",
-    "keywords": ["Laravel", "LaravelRoomstealsApi"],
+    "homepage": "https://github.com/Hotels4Hope/arn-laravel-api",
+    "keywords": ["Laravel", "ArnLaravelApi"],
     "require": {
-        "guzzlehttp/guzzle": "^6.3",
+        "guzzlehttp/guzzle": "^7.0.1",
         "illuminate/support": "7.*"
     },
     "require-dev": {
-        "mockery/mockery": "^1.1",
+        "mockery/mockery": "^1.4.2",
         "sempro/phpunit-pretty-print": "^1.0",
-        "phpunit/phpunit": "^8.5"
+        "phpunit/phpunit": "^9.3.3"
     },
     "autoload": {
         "psr-4": {
-            "NateRitter\\LaravelRoomstealsApi\\": "src/"
+            "Hotels4Hope\\ArnLaravelApi\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NateRitter\\LaravelRoomstealsApi\\Tests\\": "tests"
+            "Hotels4Hope\\ArnLaravelApi\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "NateRitter\\LaravelRoomstealsApi\\LaravelRoomstealsApiServiceProvider"
+                "Hotels4Hope\\ArnLaravelApi\\ArnLaravelApiServiceProvider"
             ],
             "aliases": {
-                "LaravelRoomstealsApi": "NateRitter\\LaravelRoomstealsApi\\Facades\\LaravelRoomstealsApi"
+                "ArnLaravelApi": "Hotels4Hope\\ArnLaravelApi\\Facades\\ArnLaravelApi"
             }
         }
     }
