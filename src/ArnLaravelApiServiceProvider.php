@@ -1,6 +1,6 @@
 <?php
 
-namespace hotelsforhope\ArnLaravelApi;
+namespace Hotels4Hope\ArnLaravelApi;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -31,7 +31,7 @@ class ArnLaravelApiServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/arnlaravelapi.php', 'arnlaravelapi');
+        $this->mergeConfigFrom(__DIR__ . '/../config/arnlaravelapi.php', 'arnlaravelapi');
 
         // Register the service the package provides.
         $this->app->singleton('arnlaravelapi', function ($app) {
@@ -58,7 +58,7 @@ class ArnLaravelApiServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__.'/../config/arnlaravelapi.php' => config_path('arnlaravelapi.php'),
+            __DIR__ . '/../config/arnlaravelapi.php' => config_path('arnlaravelapi.php'),
         ], 'arnlaravelapi.config');
 
         // Publishing the views.

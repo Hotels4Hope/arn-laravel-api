@@ -1,10 +1,10 @@
 <?php
 
-namespace NateRitter\arnlaravelapi;
+namespace Hotels4Hope\ArnLaravelApi;
 
 use GuzzleHttp\Client;
 
-class arnlaravelapi
+class ArnLaravelApi
 {
     /**
      * TODO:
@@ -71,7 +71,7 @@ class arnlaravelapi
     public function __construct()
     {
         if (! $this->apiCredentialsExist()) {
-            throw new \Exception("ARN API credentials do not exist in .env file");
+            throw new \Exception('ARN API credentials do not exist in .env file');
         }
         $this->client = new Client(['http_errors' => false, 'headers' => ['Accept-version' => config('arnlaravelapi.arn_api_version')]]);
 
@@ -90,6 +90,7 @@ class arnlaravelapi
         ) {
             return false;
         }
+
         return true;
     }
 
@@ -108,7 +109,7 @@ class arnlaravelapi
      */
     public function constructPortalUri()
     {
-        return $this->portal_uri.'?memberToken='.urlencode($this->member_token);
+        return $this->portal_uri . '?memberToken=' . urlencode($this->member_token);
     }
 
     /**
@@ -243,7 +244,7 @@ class arnlaravelapi
         $this->query = $this->mergeSiteAdminToken($params);
 
         $response = $this->client->request('POST', $this->member_uri, [
-            'form_params' => $this->query
+            'form_params' => $this->query,
         ]);
 
         $json = json_decode((string) $response->getBody(), true);
@@ -277,7 +278,7 @@ class arnlaravelapi
         ];
 
         if ($withToken) {
-            $credentials['token'] = 'ARNUSER-'.config('arnlaravelapi.arn_api_site_admin_username');
+            $credentials['token'] = 'ARNUSER-' . config('arnlaravelapi.arn_api_site_admin_username');
         }
 
         return array_merge($query, $credentials);
@@ -307,7 +308,7 @@ class arnlaravelapi
         $params['type'] = 'findfeaturedlocationdeals';
 
         $response = $this->client->request('GET', $this->deals_uri, [
-            'query' => $params
+            'query' => $params,
         ]);
 
         $json = json_decode((string) $response->getBody(), true);
@@ -332,7 +333,7 @@ class arnlaravelapi
         $params['type'] = 'findfeaturedlocationdeals';
 
         $response = $this->client->request('GET', $this->deals_uri, [
-            'query' => $params
+            'query' => $params,
         ]);
 
         $json = json_decode((string) $response->getBody(), true);
@@ -358,7 +359,7 @@ class arnlaravelapi
 
         try {
             $response = $this->client->request('GET', $this->hotel_uri, [
-                'query' => $params
+                'query' => $params,
             ]);
         } catch (Exception $e) {
             // Example: `416 Requested Range Not Satisfiable` response:

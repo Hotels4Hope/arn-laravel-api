@@ -1,6 +1,6 @@
 <?php
 
-namespace NateRitter\LaravelRoomstealsApi\Facades;
+namespace Hotels4Hope\ArnLaravelApi\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
