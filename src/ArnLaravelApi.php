@@ -177,7 +177,10 @@ class ArnLaravelApi
         $additionalInfoData->name = $full_name;
         $additionalInfoData->email = $params['email'] ?? '';
         $memberData->AdditionalInfo = json_encode($additionalInfoData);
-        $memberData->Points = $params['points'] ?? '';
+
+        if (isset($params['points'])) {
+            $memberData->Points = $params['points'];
+        }
 
         return json_encode($memberData);
     }
