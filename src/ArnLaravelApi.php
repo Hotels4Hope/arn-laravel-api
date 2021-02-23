@@ -44,6 +44,12 @@ class ArnLaravelApi
     protected $portal_uri = 'https://events.hotelsforhope.com/v6';
 
     /**
+     * Location Search API
+     * @var string
+     */
+    protected $location_search_uri = 'https://api.travsrv.com/widgetapi.aspx';
+
+    /**
      * Admin token
      */
     public $admin_token;
@@ -332,11 +338,33 @@ class ArnLaravelApi
      * Get the locations with the best deals
      * @return array
      */
-    public function getDealsHotels(array $params = [])
+    public function getDealsHotels($location_id = null, array $params = [])
     {
-        $params['type'] = 'findfeaturedlocationdeals';
+        $params['type'] = 'findfeaturedhoteldeals';
 
         $response = $this->client->request('GET', $this->deals_uri, [
+            'query' => $params,
+        ]);
+
+        $json = json_decode((string) $response->getBody(), true);
+
+        $this->stack[] = [
+            'function' => (! empty($function)) ? $function : __FUNCTION__,
+            'params' => $params,
+            'code' => $response->getStatusCode(),
+            'body' => $json,
+            'response' => $response,
+        ];
+
+        return end($this->stack);
+    }
+
+    public function getLocationId(string $city, array $params = [])
+    {
+        $params['type'] = 'cities';
+        $params['name'] = $city;
+
+        $response = $this->client->request('GET', $this->location_search_uri, [
             'query' => $params,
         ]);
 
