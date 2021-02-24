@@ -342,6 +342,10 @@ class ArnLaravelApi
     {
         $params['type'] = 'findfeaturedhoteldeals';
 
+        if (! empty($location_id)) {
+            $params['locationid'] = $location_id;
+        }
+
         $response = $this->client->request('GET', $this->deals_uri, [
             'query' => $params,
         ]);
