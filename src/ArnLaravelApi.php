@@ -443,7 +443,7 @@ class ArnLaravelApi
 
         $json = json_decode((string) $response->getBody(), true);
 
-        if (isset($json['Images']) && isset($json['Images'][0]) && isset($json['Images'][0]['ImagePath'])) {
+        if (! empty($json['Images']) && ! empty($json['Images'][0]) && ! empty($json['Images'][0]['ImagePath'])) {
             $json['FeaturedImage'] = $this->getHighResolutionFeaturedImage($json['Images'][0]['ImagePath']);
         }
 
