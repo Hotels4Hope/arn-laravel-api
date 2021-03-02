@@ -50,6 +50,12 @@ class ArnLaravelApi
     protected $location_search_uri = 'https://api.travsrv.com/widgetapi.aspx';
 
     /**
+     * Hotel Detail API
+     * @var string
+     */
+    protected $property_details_uri = 'https://api.travsrv.com/api/content/findpropertyinfo/';
+
+    /**
      * Admin token
      */
     public $admin_token;
@@ -409,5 +415,54 @@ class ArnLaravelApi
         ];
 
         return end($this->stack);
+    }
+
+    /**
+     * Returns hotel details
+     *
+     * @param   int    $property_id
+     * @param   array  $params
+     *
+     * @return  array
+     */
+    public function getHotelDetails(int $property_id, array $params = [])
+    {
+        $params = $this->mergeSiteAdminCredentials($params, false);
+        $params['propertyid'] = $property_id;
+
+        try {
+            $response = $this->client->request('GET', $this->property_details_uri, [
+                'query' => $params,
+            ]);
+        } catch (Exception $e) {
+        }
+
+        $json = json_decode((string) $response->getBody(), true);
+
+        if (isset($json['Images']) && isset($json['Images'][0]) && isset($json['Images'][0]['ImagePath'])) {
+            $json['FeaturedImage'] = $this->getHighResolutionFeaturedImage($json['Images'][0]['ImagePath']);
+        }
+
+        $this->stack[] = [
+            'function' => (! empty($function)) ? $function : __FUNCTION__,
+            'params' => $params,
+            'code' => $response->getStatusCode(),
+            'body' => $json,
+            'response' => $response,
+        ];
+
+        return end($this->stack);
+    }
+
+    /**
+     * Replaces low resolution version of the featured image with higher resolution version
+     *
+     * @param   string  $image_url
+     *
+     * @return  string
+     */
+    private function getHighResolutionFeaturedImage(string $image_url)
+    {
+        return str_replace('_300.jpg', '_804480.jpg', $image_url);
     }
 }
