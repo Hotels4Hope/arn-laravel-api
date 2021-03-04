@@ -444,7 +444,8 @@ class ArnLaravelApi
         $json = json_decode((string) $response->getBody(), true);
 
         if (! empty($json['Images']) && ! empty($json['Images'][0]) && ! empty($json['Images'][0]['ImagePath'])) {
-            $json['FeaturedImage'] = $this->getHighResolutionFeaturedImage($json['Images'][0]['ImagePath']);
+            $json['FeaturedImage'] = $json['Images'][0]['ImagePath'];
+            $json['HighResolutionFeaturedImage'] = $this->getHighResolutionFeaturedImage($json['Images'][0]['ImagePath']);
         }
 
         $this->stack[] = [
